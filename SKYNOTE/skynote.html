@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyNote</title>
+
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f7fc;
+            color: #152441;
+            font-family: Arial, sans-serif;
+        }
+
+        .page-wrapper {
+            max-width: 1440px;
+            margin: 15px auto;
+            overflow: hidden;
+            background: white;
+            border: 1px solid #e7eaf1;
+            border-radius: 10px;
+        }
+
+        /* NAVBAR */
+        .site-navbar {
+            padding: 12px 7%;
+            background: linear-gradient(to right, #3568f5, #8838e9);
+        }
+
+        .brand {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .brand:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-navbar .nav-link {
+            margin: 0 9px;
+            padding: 9px 0;
+            color: whitesmoke;
+            white-space: nowrap;
+        }
+
+        .site-navbar .nav-link:hover,
+        .site-navbar .nav-link.active {
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 6px;
+        }
+
+        .navbar-toggler {
+            border: 1px solid white;
+            padding: 6px 10px;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .get-started {
+            padding: 9px 20px;
+            color: #713bb8;
+            background: white;
+            border-radius: 25px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .get-started:hover {
+            color: #55258f;
+            background: #f1eaff;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(to right, #d9f1ff, #f0e1ff);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            padding: 45px 7%;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 5px 13px;
+            margin-bottom: 12px;
+            border-radius: 25px;
+            background: #d6defa;
+            color: #6846a8;
+            font-size: 13px;
+        }
+
+        .hero-title {
+            color: #102344;
+            font-size: 42px;
+            font-weight: bold;
+            line-height: 1.12;
+            margin-bottom: 15px;
+        }
+
+        .hero-description {
+            color: #4d5b70;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .trial-button {
+            padding: 11px 23px;
+            margin: 0 8px 10px 0;
+            color: white;
+            background: linear-gradient(to right, #3568f5, #8838e9);
+            border-radius: 25px;
+        }
+
+        .trial-button:hover {
+            color: white;
+            opacity: 0.9;
+        }
+
+        .learn-button {
+            padding: 10px 23px;
+            margin-bottom: 10px;
+            color: #263b5a;
+            background: transparent;
+            border: 1px solid #65758e;
+            border-radius: 12px;
+        }
+
+        .learn-button:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .laptop-image {
+            display: block;
+            width: 100%;
+            max-width: 470px;
+            max-height: 350px;
+            height: auto;
+            object-fit: contain;
+            margin: 20px auto;
+        }
+
+        /* FEATURES SECTION */
+        .features-section {
+            padding: 32px 6% 28px;
+            background: white;
+        }
+
+        .section-title {
+            color: #101d3b;
+            font-size: 27px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            color: #697386;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .feature-card {
+            height: 100%;
+            border: 1px solid #edf0f5;
+            border-radius: 12px;
+            box-shadow: 0 4px 13px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 19px rgba(0, 0, 0, 0.10);
+        }
+
+        .feature-card .card-body {
+            padding: 21px 15px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 21px;
+        }
+
+        .purple-icon {
+            color: #793ee8;
+            background: #e8ddff;
+        }
+
+        .blue-icon {
+            color: #1977ca;
+            background: #dceeff;
+        }
+
+        .green-icon {
+            color: #19a77a;
+            background: #d7f7e9;
+        }
+
+        .pink-icon {
+            color: #d83b80;
+            background: #ffe0ed;
+        }
+
+        .feature-card h3 {
+            color: #151e32;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: #697386;
+            font-size: 14px;
+            line-height: 1.55;
+            margin-bottom: 0;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            padding: 28px 8%;
+            background: #edf2ff;
+        }
+
+        .about-image {
+            display: block;
+            width: 100%;
+            max-width: 430px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 0 auto;
+        }
+
+        .about-title {
+            color: #101d3b;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .about-description {
+            color: #626d7d;
+            font-size: 14px;
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+
+        .about-button {
+            padding: 8px 18px;
+            color: #624a91;
+            background: transparent;
+            border: 1px solid #7961a5;
+            border-radius: 10px;
+        }
+
+        .about-button:hover {
+            color: white;
+            background: #624a91;
+        }
+
+        /* FOOTER */
+        .site-footer {
+            padding: 22px 7% 16px;
+            color: white;
+            background: #0c1938;
+        }
+
+        .footer-brand {
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .footer-brand:hover {
+            color: #dcd3ff;
+            text-decoration: none;
+        }
+
+        .footer-links a {
+            display: inline-block;
+            margin: 5px 9px;
+            color: #d9deeb;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #b7a4ff;
+        }
+
+        .social-links a {
+            margin-left: 12px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .social-links a:hover {
+            color: #b7a4ff;
+        }
+
+        .copyright {
+            margin: 15px 0 0;
+            color: #c0c8db;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* TABLET */
+        @media (max-width: 991.98px) {
+            .site-navbar {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+
+            .hero-content {
+                padding: 35px 5%;
+            }
+
+            .hero-title {
+                font-size: 35px;
+            }
+
+            .features-section {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+
+            .about-section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 767.98px) {
+            .page-wrapper {
+                margin: 8px;
+            }
+
+            .site-navbar {
+                padding: 12px 16px;
+            }
+
+            .brand {
+                font-size: 20px;
+            }
+
+            .navbar-toggler {
+                margin-left: auto;
+            }
+
+            .site-navbar .navbar-collapse {
+                flex-basis: 100%;
+                padding-top: 12px;
+            }
+
+            .site-navbar .nav-link {
+                display: inline-block;
+                margin: 3px 0;
+            }
+
+            .get-started {
+                margin-top: 10px;
+            }
+
+            .hero-content {
+                padding: 28px 22px 8px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .laptop-image {
+                max-width: 350px;
+                max-height: none;
+                margin: 8px auto 25px;
+            }
+
+            .features-section {
+                padding: 28px 18px 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .about-section {
+                padding: 25px 20px;
+            }
+
+            .about-image {
+                height: 210px;
+                margin-bottom: 20px;
+            }
+
+            .about-title {
+                font-size: 23px;
+            }
+
+            .site-footer {
+                padding: 24px 15px 18px;
+                text-align: center;
+            }
+
+            .footer-brand {
+                display: inline-block;
+                margin-bottom: 14px;
+            }
+
+            .footer-links {
+                margin-bottom: 12px;
+            }
+
+            .social-links a {
+                margin: 0 9px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-content {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .trial-button,
+            .learn-button {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .about-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-md site-navbar">
+            <a class="brand" href="#home">
+                <i class="fas fa-feather-alt"></i> SkyNote
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#skyNoteNavbar"
+                aria-controls="skyNoteNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="skyNoteNavbar">
+                <ul class="navbar-nav ml-auto align-items-md-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+
+                <a class="btn get-started ml-md-4" href="#features">
+                    Get Started
+                </a>
+            </div>
+        </nav>
+
+        <!-- HOME / HERO -->
+        <main>
+            <section class="hero-section" id="home">
+                <div class="row no-gutters align-items-center">
+
+                    <div class="col-12 col-md-6 hero-content">
+                        <span class="hero-label">Your Ideas, Our Priority</span>
+
+                        <h1 class="hero-title">
+                            Capture Ideas<br>
+                            Make It Happen
+                        </h1>
+
+                        <p class="hero-description">
+                            SkyNote is a simple and powerful note-taking app
+                            that helps you organize your thoughts, stay focused
+                            and achieve your goals.
+                        </p>
+
+                        <a href="#features" class="btn trial-button">
+                            Start Free Trial
+                        </a>
+
+                        <a href="#about" class="btn learn-button">
+                            Learn More
+                        </a>
+                    </div>
+
+                    <div class="col-12 col-md-6 px-3 px-md-4">
+                        <img src="./laptop.jfif" alt="Laptop displaying a notes application" class="laptop-image">
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- FEATURES -->
+            <section class="features-section" id="features">
+                <h2 class="section-title">Why Choose SkyNote?</h2>
+
+                <p class="section-subtitle">
+                    Everything you need to stay productive and organized.
+                </p>
+
+                <div class="row">
+
+                    <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                        <div class="card feature-card text-center">
+                            <div class="card-body">
+                                <div class="feature-icon purple-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h3>Fast &amp; Simple</h3>
+                                <p>
+                                    Quickly jot down your thoughts without any hassle.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                        <div class="card feature-card text-center">
+                            <div class="card-body">
+                                <div class="feature-icon blue-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>Secure</h3>
+                                <p>
+                                    Your notes are safe with end-to-end encryption.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                        <div class="card feature-card text-center">
+                            <div class="card-body">
+                                <div class="feature-icon green-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <h3>Sync Everywhere</h3>
+                                <p>
+                                    Access your notes on all your devices.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                        <div class="card feature-card text-center">
+                            <div class="card-body">
+                                <div class="feature-icon pink-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Work Together</h3>
+                                <p>
+                                    Share and collaborate with your team.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ABOUT -->
+            <section class="about-section" id="about">
+                <div class="row align-items-center">
+
+                    <div class="col-12 col-md-5">
+                        <img src="./lapii.jfif" alt="Notebook, pen and coffee" class="about-image">
+                    </div>
+
+                    <div class="col-12 col-md-7">
+                        <h2 class="about-title">About SkyNote</h2>
+
+                        <p class="about-description">
+                            We believe that great ideas deserve a great place.
+                            SkyNote is built for students, professionals and
+                            dreamers who want to keep their thoughts organized
+                            and turn them into action.
+                        </p>
+
+                        <a href="#features" class="btn about-button">
+                            Learn More
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="site-footer" id="contact">
+            <div class="row align-items-center">
+
+                <div class="col-12 col-md-3 text-center text-md-left mb-3 mb-md-0">
+                    <a class="footer-brand" href="#home">
+                        <i class="fas fa-feather-alt"></i> SkyNote
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-6 text-center footer-links mb-3 mb-md-0">
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="col-12 col-md-3 text-center text-md-right social-links">
+                    <a href="https://github.com/" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com/" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <p class="copyright">
+                &copy; 2025 SkyNote. All rights reserved.
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Bootstrap 4 JS: required for the mobile hamburger menu -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
