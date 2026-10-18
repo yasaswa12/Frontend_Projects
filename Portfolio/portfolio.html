@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #1c3155;
+            background: #f4f8fc;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+        .nav {
+            background-color: #1c2e50;
+            padding: 15px 5%;
+        }
+
+        .brand {
+            color: #55d9f2;
+            font-size: 22px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .brand:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .brand-txt {
+            color: white;
+        }
+
+        .nav-link {
+            color: white !important;
+            margin-left: 15px;
+        }
+
+        .nav-link:hover {
+            color: #55d9f2 !important;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+
+        .navbar-toggler {
+            border: 1px solid white;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* HERO SECTION */
+        .first-div {
+            background: linear-gradient(110deg, #6550f5, #3689ed, #ed50ca);
+            padding: 65px 15px;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 46px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero-text {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .btn-projects {
+            border-radius: 28px;
+            border: none;
+            color: #34328c;
+            background-color: white;
+            padding: 11px 26px;
+            font-weight: bold;
+        }
+
+        .btn-projects:hover {
+            background: #1c2e50;
+            color: white;
+        }
+
+        /* COMMON SECTIONS */
+        .section-padding {
+            padding: 40px 5%;
+        }
+
+        .section-label {
+            color: #704ce7;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 27px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background-color: #f2f8fc;
+        }
+
+        .about-img {
+            display: block;
+            width: 100%;
+            max-width: 470px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            color: #526681;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .btn-learn {
+            color: #704ce7;
+            border: 1px solid #704ce7;
+            border-radius: 25px;
+            padding: 9px 24px;
+            background: transparent;
+        }
+
+        .btn-learn:hover {
+            background: #704ce7;
+            color: white;
+        }
+
+        /* PROJECTS */
+        .projects {
+            background: #efefff;
+        }
+
+        .project-card {
+            background: white;
+            padding: 14px;
+            border-radius: 10px;
+            height: 100%;
+            box-shadow: 0 4px 15px rgba(28, 46, 80, 0.09);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(28, 46, 80, 0.15);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 145px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h5 {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .project-card p {
+            color: #526681;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .btn-view {
+            background: #6845e9;
+            color: white;
+            padding: 8px 17px;
+            border-radius: 9px;
+            font-size: 13px;
+        }
+
+        .btn-view:hover {
+            color: white;
+            background: #3925b8;
+        }
+
+        /* SKILLS */
+        .skills {
+            background: #f2f8fc;
+        }
+
+        .skill-box {
+            text-align: center;
+            padding: 12px 5px;
+        }
+
+        .skill-icon {
+            width: 65px;
+            height: 65px;
+            background: white;
+            border: 1px solid #e1e9f4;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px;
+            font-size: 35px;
+            box-shadow: 0 3px 10px rgba(28, 46, 80, 0.06);
+        }
+
+        .skill-name {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .html-icon {
+            color: #e65336;
+        }
+
+        .css-icon {
+            color: #258bd2;
+        }
+
+        .js-icon {
+            color: #e4bd21;
+        }
+
+        .react-icon {
+            color: #39bfd6;
+        }
+
+        .java-icon {
+            color: #e36a32;
+        }
+
+        .spring-icon {
+            color: #62a83b;
+        }
+
+        .mysql-icon {
+            color: #2582a9;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #1c2e50;
+            color: white;
+            text-align: center;
+            padding: 23px 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 9px;
+        }
+
+        .social-icons a:hover {
+            color: #55d9f2;
+        }
+
+        .copyright {
+            font-size: 12px;
+            margin: 12px 0 0;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-text {
+                font-size: 15px;
+            }
+
+            .first-div {
+                padding: 50px 15px;
+            }
+
+            .section-padding {
+                padding: 30px 18px;
+            }
+
+            .about-img {
+                margin-bottom: 25px;
+            }
+
+            .project-img {
+                height: 190px;
+            }
+
+            .nav-link {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 27px;
+            }
+
+            .project-img {
+                height: 160px;
+            }
+
+            .skill-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 29px;
+            }
+
+            .skill-name {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md nav">
+        <a class="brand" href="#home">
+            <i class="fas fa-feather-alt"></i>
+            <span class="brand-txt">Portfolio</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar"
+            aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="first-div container-fluid text-center" id="home">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="hero-title">Hi, I'm a Web Developer</h1>
+
+                <p class="hero-text">
+                    I build modern and responsive web applications
+                    <br class="d-none d-sm-block">
+                    with clean code and great user experience.
+                </p>
+
+                <a href="#projects" class="btn btn-projects">
+                    View My Projects &nbsp;
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section-padding" id="about">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+
+                <div class="col-md-5 mb-3 mb-md-0">
+                    <img src="../SKYNOTE/laptop.jfif" alt="Laptop showing programming code" class="about-img">
+                </div>
+
+                <div class="col-md-7">
+                    <p class="section-label">ABOUT ME</p>
+                    <h2 class="section-title">Passionate Developer</h2>
+
+                    <p class="about-text">
+                        I enjoy turning ideas into real-world web
+                        applications. I love learning new technologies
+                        and building user-friendly solutions that
+                        make a difference.
+                    </p>
+
+                    <a href="#skills" class="btn btn-learn">
+                        Learn More &nbsp;
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects section-padding" id="projects">
+        <div class="container-fluid">
+
+            <div class="text-center mb-4">
+                <p class="section-label">MY PROJECTS</p>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="about-text">
+                    Here are some of the projects I have worked on.
+                </p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <img src="./restaurant.jfif" alt="Restaurant food" class="project-img">
+
+                        <h5>Restaurant Website</h5>
+                        <p>
+                            A food ordering platform with menu,
+                            cart and order tracking.
+                        </p>
+
+                        <a href="#" class="btn btn-view">
+                            View Project &nbsp;
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <img src="./bank.jfif" alt="Mobile application" class="project-img">
+
+                        <h5>Banking Application</h5>
+                        <p>
+                            A simple banking system with account
+                            management and transactions.
+                        </p>
+
+                        <a href="#" class="btn btn-view">
+                            View Project &nbsp;
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <img src="./voting.jfif" alt="Voting concept" class="project-img">
+
+                        <h5>Online Voting System</h5>
+                        <p>
+                            A voting system with user and admin
+                            dashboards.
+                        </p>
+
+                        <a href="#" class="btn btn-view">
+                            View Project &nbsp;
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills section-padding" id="skills">
+        <div class="container-fluid">
+
+            <div class="text-center mb-3">
+                <p class="section-label">MY SKILLS</p>
+                <h2 class="section-title">Technologies I Work With</h2>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-4 col-sm-3 col-md-2">
+                    <div class="skill-box">
+                        <div class="skill-icon html-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <p class="skill-name">HTML5</p>
+                    </div>
+                </div>
+
+                <div class="col-4 col-sm-3 col-md-2">
+                    <div class="skill-box">
+                        <div class="skill-icon css-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <p class="skill-name">CSS3</p>
+                    </div>
+                </div>
+
+                <div class="col-4 col-sm-3 col-md-2">
+                    <div class="skill-box">
+                        <div class="skill-icon js-icon">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <p class="skill-name">JavaScript</p>
+                    </div>
+                </div>
+
+                <div class="col-4 col-sm-3 col-md-2">
+                    <div class="skill-box">
+                        <div class="skill-icon react-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <p class="skill-name">React</p>
+                    </div>
+                </div>
+
+                <div class="col-4 col-sm-3 col-md-2">
+                    <div class="skill-box">
+                        <div class="skill-icon java-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <p class="skill-name">Java</p>
+                    </div>
+                </div>
+
+                <div class="col-4 col-sm-3 col-md-2">
+                    <div class="skill-box">
+                        <div class="skill-icon spring-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <p class="skill-name">Spring Boot</p>
+                    </div>
+                </div>
+
+                <div class="col-4 col-sm-3 col-md-2">
+                    <div class="skill-box">
+                        <div class="skill-icon mysql-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <p class="skill-name">MySQL</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="social-icons">
+            <a href="#" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="#" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="#" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="#" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <p class="copyright">
+            &copy; 2026. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- Bootstrap 4 JavaScript dependencies for the navbar -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
