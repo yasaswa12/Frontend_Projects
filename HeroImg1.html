@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero image with border</title>
+    <style>
+        .hero_img {
+            height: 300px;
+            width: 95%;
+            border: 3px solid black;
+            margin-left: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            background-image: url("../images/nature3.jfif");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero_txt {
+            position: absolute;
+            text-align: center;
+            color: #fff;
+            top: 70px;
+            right: 500px;
+        }
+
+        .hero_img1 {
+            height: 300px;
+            width: 95%;
+            border: 3px solid black;
+            margin-left: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero_img1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: unset;
+        }
+
+        .hero_txt1 {
+            position: absolute;
+            text-align: center;
+            color: #fff;
+            top: 70px;
+            right: 500px;
+        }
+
+
+        .hero_img2 {
+            height: 300px;
+            width: 95%;
+            border: 3px solid black;
+            margin-left: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+
+            background-image: url("../images/nature4.jfif");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+
+            position: relative;
+        }
+
+        .hero_txt2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            color: #fff;
+            border: 2px solid white;
+            padding: 5px;
+            border-radius: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>2. Hero image with border</h2>
+    <div class="hero_img">
+        <!-- <img src="../images/nature2.jfif" alt="nature"> -->
+        <div class="hero_txt">
+            <h1>Explore the Beauty</h1>
+            <p>Nature always wear the colors of the spirit</p>
+        </div>
+    </div>
+    <div class="hero_img1">
+        <img src="../images/nature3.jfif" alt="nature">
+        <div class="hero_txt1">
+            <h1>Explore the Beauty</h1>
+            <p>Nature always wear the colors of the spirit</p>
+        </div>
+    </div>
+
+    <div class="hero_img2">
+
+        <div class="hero_txt2">
+            <h2>Explore the world</h2>
+            <p>New places. New Stories</p>
+        </div>
+    </div>
+</body>
+
+</html>
